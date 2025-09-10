@@ -1,0 +1,49 @@
+# Global paths
+paths:
+  # Directory containing inputs (images and any provided point files)
+  input_dir: ./python_detec
+  # Directory where outputs will be written (XML, BIN, visualizations)
+  output_dir: ./python_detec
+
+# Calibration (intrinsics) stage parameters — mirrors original script defaults
+calibration:
+  # If empty, will try {paths.input_dir}/pic/rgb_behindexam_pic.png then behindexam_pic.png
+  image_path: ""
+  # Inner corners (rows, cols) — original pipeline example uses 7x8 for five boards
+  board_size: [7, 8]
+  square_size: 0.05
+  tau: 0.1
+  radius_list: [5, 7, 9]
+  target_boards: 5
+  gamma: 0.6
+  min_boards_required: 3
+  # Where calibration outputs go; this script will set to {paths.output_dir}/Light_AI at runtime
+  output_subdir: Light_AI
+
+# Post-processing (extrinsics refinement) — mirrors integrated script defaults
+postprocess:
+  # Choose dataset preset: rgb or std
+  dataset: rgb
+  # Corner detection parameters for integrated pipeline (used by both datasets)
+  tau: 0.02
+  gamma: 1.2
+  board_size: [4, 22]
+  # Whether to process both RGB and Standard datasets in one run
+  process_both: true
+  # File names must match originals
+  rgb:
+    xml_name: rgb_Light_AI_Result.xml
+    pixelpoints_name: rgb_Pixelpoints.txt
+    out_bin_name: RGBAICameracfg.bin
+    use_fisheye: true
+  std:
+    xml_name: Light_AI_Result.xml
+    pixelpoints_name: Pixelpoints.txt
+    out_bin_name: AICameracfg.bin
+    use_fisheye: false
+  # Common files and knobs
+  actualpoints_name: Actualpoints.txt
+  max_iterations: 10
+  maxAcceptableError: 10.0
+  max_error: 20.0
+  y_offset: 0.0

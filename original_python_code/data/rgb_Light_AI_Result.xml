@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<result>
+   <result_code>0</result_code>
+   <result_info>Calibration Success</result_info>
+   <camera_type>3</camera_type>
+   <intrinsics_output>320.3383483887;234.3950805664;312.8276672363;0.0035750282;-0.2950612009;0.4007084966;-0.1899744868;</intrinsics_output>
+   <extrinsics_output>0.1063899383;0.0133010814;0.1427703557;-1.2363375253;1.2661877246;-1.1705795986;</extrinsics_output>
+   <reproj_error>0.1757540513;</reproj_error>
+   <angle_error>-93.4304991274;1.0699526864;-0.3590486913;</angle_error>
+   <undistort_img>.\data\undistort_calib.png</undistort_img>
+</result>
